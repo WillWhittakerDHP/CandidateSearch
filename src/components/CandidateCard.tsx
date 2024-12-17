@@ -6,6 +6,7 @@ import { CgPlayListAdd } from 'react-icons/cg';
 type CandidateCardProps = {
   currentCandidate: Candidate;
   addToSavedList?: (() => void) | null;
+  doNotAddToSavedList?: (() => void) | null;
   onSavedList?: boolean | null;
   removeFromStorage?:
     | ((
@@ -19,6 +20,7 @@ type CandidateCardProps = {
 const CandidateCard = ({
   currentCandidate,
   addToSavedList,
+  doNotAddToSavedList,
   onSavedList,
   removeFromStorage,
 }: CandidateCardProps) => {
@@ -54,7 +56,7 @@ const CandidateCard = ({
             <aside className='icons'>
               <ImCross
                 style={{ fontSize: '40px', cursor: 'pointer' }}
-                onClick={(e: React.MouseEvent<SVGSVGElement, MouseEvent>) =>
+                onClick={(/*e: React.MouseEvent<SVGSVGElement, MouseEvent>*/) =>
                   removeFromStorage?.(
                     // e,
                     // onSavedList,
@@ -68,6 +70,12 @@ const CandidateCard = ({
               <CgPlayListAdd
                 style={{ fontSize: '50px', cursor: 'pointer' }}
                 onClick={() => addToSavedList?.()}
+              />
+            {/* </aside>
+            <aside className='icons'> */}
+              <ImCross
+                style={{ fontSize: '40px', cursor: 'pointer' }}
+                onClick={() => doNotAddToSavedList?.()}
               />
             </aside>
           )}

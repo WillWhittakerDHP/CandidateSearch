@@ -53,14 +53,19 @@ const CandidateSearch = () => {
       moveToNextIndex();
       displayNextCandidate();
     };
+
+    const doNotAddToSavedList = () => {
+      moveToNextIndex();
+      displayNextCandidate();
+    };
   
 
   return (
     <>
-    <h3>CandidateSearch</h3>
     <CandidateCard 
       currentCandidate={currentCandidate}
       addToSavedList={addToSavedList}
+      doNotAddToSavedList={doNotAddToSavedList}
       />
     </>
   );
@@ -71,9 +76,9 @@ export default CandidateSearch;
 /*
 // TODO: WHEN the candidate search page loads, the information for one candidate should be displayed
 // TODO: WHEN I click the "+" button, the candidate should be saved to the list of potential candidates and the next candidate's information should be displayed
-TODO: WHEN I click the "-" button, the next candidate's information should be displayed without saving the current candidate
+// TODO: WHEN I click the "-" button, the next candidate's information should be displayed without saving the current candidate
 TODO: WHEN there are no candidates available to review, an appropriate message should be shown indicating no more candidates are available
 // TODO: WHEN the "saved candidates" page loads, the user should see a list of previously saved potential candidates with their name, username, location, avatar, email, html_url, and company
-TODO: WHEN the page reloads, the list of potential candidates should persist and be available for viewing
+// TODO: WHEN the page reloads, the list of potential candidates should persist and be available for viewing
 TODO: WHEN there are no potential candidates, an appropriate message should be displayed indicating no candidates have been accepted
 */
